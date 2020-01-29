@@ -8,6 +8,14 @@ class Jedi{
     evaluar(){
         this.estado.evaluar();
     };
+    //prototype patron
+    clonar() : Jedi{
+        let j = new Jedi();
+        j.cantMisiones = this.cantMisiones;
+        j.estado = this.estado;
+        j.nivelFuerza = this.nivelFuerza;
+        return j;
+    }
 }
 
 abstract class EstadoJedi{
@@ -88,7 +96,7 @@ class Expulsado extends EstadoJedi{
     }
 }
 
-//podemos hacer singleton
+//podemos hacer singleton// tmb es fachada
 class Evaluador{
     private static instance : Evaluador | null = null;
     private constructor(){};
